@@ -22,22 +22,29 @@
         static void sort(int[] arr)
         {
             bool swapped = false;
-            for(int i = 0; i < arr.Length - 1; i++)
+            for (int i = 0; i < arr.Length - 1; i++)
             {
 
-                for(int j = 0; j < arr.Length - i - 1; j++)
+                for (int j = 0; j < arr.Length - i - 1; j++)
                 {
                     swapped = true;
                     if (arr[j] > arr[j + 1])
                     {
                         (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
                     }
-                    
+
                 }
                 if (swapped != true) { break; }
             }
         }
 
+        static void swap(ref int[] arr, ref int i, ref int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        delegate int del(int x, int y);
         static void Main(string[] args)
         {
             #region exceptions
@@ -106,135 +113,220 @@
             //    Console.WriteLine($"avarage of sub{i+1} is {vv}");
             //}
             #endregion
-            do
+
+            #region lab  3
+            //do
+            //{
+            //    int x = 0;
+
+            //    Console.WriteLine("Enter choice \n1) one Empoloyee \t 2) mor than Employee");
+            //    Console.WriteLine($"Your choise please : ");
+            //    x = int.Parse(Console.ReadLine());
+
+
+            //    switch (x)
+            //    {
+            //        case 1:
+            //            Console.WriteLine("Enter data of one Employee : \n");
+            //            Empoloyee emp= new Empoloyee();
+
+            //            Console.Write("Enter SSN : ");
+            //            emp.SetSSN(int.Parse(Console.ReadLine()));
+
+            //            Console.Write("Enter First Name : ");
+            //            emp.SetFname(Console.ReadLine());
+
+            //            Console.Write("Enter Last Name : ");
+            //            emp.SetLname(Console.ReadLine());
+            //            bool isvaled ;
+            //            do {
+
+            //                try
+            //                {
+            //                    Console.Write("Enter Age : ");
+            //                    emp.Setage(int.Parse(Console.ReadLine()));
+            //                    isvaled = true;
+            //                }
+            //                catch (Exception ex)
+            //                {
+            //                    Console.Write("Re ");
+            //                    isvaled = false;
+
+            //                }
+            //            } while (!isvaled);
+
+
+            //            do
+            //            {
+            //                try
+            //                {
+            //                    Console.Write("Enter Address : ");
+            //                    emp.SetAddress(Console.ReadLine());
+            //                    isvaled = true;
+
+            //                }
+            //                catch(Exception ex)
+            //                {
+            //                    Console.Write("Re ");
+            //                    isvaled = false;
+
+            //                }
+            //            } while (!isvaled);
+
+
+
+            //            emp.Print_Data();
+
+            //            break;
+            //        case 2:
+            //            Console.WriteLine($"Enter number of employee : ");
+            //            int ind = int.Parse(Console.ReadLine());
+            //            Empoloyee[] emps= new Empoloyee[ind]; 
+            //            for(int i = 0; i < emps.Length; i++)
+            //            {
+            //                Console.Write("Enter SSN : ");
+            //                emps[i].SetSSN(int.Parse(Console.ReadLine()));
+
+            //                Console.Write("Enter First Name : ");
+            //                emps[i].SetFname(Console.ReadLine());
+
+            //                Console.Write("Enter Last Name : ");
+            //                emps[i].SetLname(Console.ReadLine());
+            //                bool isvaled2;
+            //                do
+            //                {
+
+            //                    try
+            //                    {
+            //                        Console.Write("Enter Age : ");
+            //                        emps[i].Setage(int.Parse(Console.ReadLine()));
+            //                        isvaled2 = true;
+            //                    }
+            //                    catch (Exception ex)
+            //                    {
+            //                        Console.Write("Re ");
+            //                        isvaled2 = false;
+
+            //                    }
+            //                } while (!isvaled2);
+
+
+            //                do
+            //                {
+            //                    try
+            //                    {
+            //                        Console.Write("Enter Address : ");
+            //                        emps[i].SetAddress(Console.ReadLine());
+            //                        isvaled2 = true;
+
+            //                    }
+            //                    catch (Exception ex)
+            //                    {
+            //                        Console.Write("Re ");
+            //                        isvaled2 = false;
+
+            //                    }
+            //                } while (!isvaled2);
+
+
+
+            //                //emps[i].Print_Data();
+
+            //            }
+            //            break;
+            //        default:
+            //            Console.WriteLine("Invaled choise ");
+            //            break;
+            //    }
+            //}while(true);
+            #endregion
+
+            #region coments
+
+            //int[] arr= { 1, 3, 6, 5 };
+            //int x = 0, y = 3;
+
+            //swap(ref arr,ref x,ref y );
+
+            //for(int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.WriteLine(arr[i]);
+
+            //}
+
+            //MyMath mat = new MyMath();
+            //mat.X = 5;
+            //mat.Y = 3;
+            //Console.WriteLine(mat.Add());
+
+
+            //Student std1=new Student();
+            //Console.Write("Enter SSN : ");
+            //std1.SSN = int.Parse(Console.ReadLine());
+
+            //Console.Write("Enter Name : ");
+            //std1.Name= Console.ReadLine();
+
+            //Console.Write("Enter Age : ");
+            //std1.Age = int.Parse(Console.ReadLine());
+
+            //Console.Write("Enter Address : ");
+            //std1.Address = Console.ReadLine();
+
+            //std1.Print();
+
+            //        Student[] students = new Student[3];
+            //        for (int i = 0; i < students.Length; i++) 
+            //        {
+            //            students[i] = new Student();
+            //            Console.Write($"Enter SSN std {i+1} : ");
+            //            students[i].SSN = int.Parse(Console.ReadLine());
+
+            //            Console.Write($"Enter Name std {i+1} : ");
+            //            students[i].Name = Console.ReadLine();
+
+            //            Console.Write($"Enter Age std {i+1} : ");
+            //            students[i].Age = int.Parse(Console.ReadLine());
+
+            //            Console.Write($"Enter Address std {i+1} : ");
+            //            students[i].Address = Console.ReadLine();
+
+            //        }
+            //        for (int i = 0; i < students.Length; i++) 
+            //        {
+            //            //students[i] = new Student();
+            //            students[i].Print();
+
+            //        }
+            #endregion
+
+            #region Delegates
+            calculator(2,3, Add);
+
+            static void calculator(int x1, int y1, del de)
             {
-                int x = 0;
-                
-                Console.WriteLine("Enter choice \n1) one Empoloyee \t 2) mor than Employee");
-                Console.WriteLine($"Your choise please : ");
-                x = int.Parse(Console.ReadLine());
+                int x = de(x1, y1);
                 
 
-                switch (x)
-                {
-                    case 1:
-                        Console.WriteLine("Enter data of one Employee : \n");
-                        Empoloyee emp= new Empoloyee();
+                Console.WriteLine($"Add = {x}");
 
-                        Console.Write("Enter SSN : ");
-                        emp.SetSSN(int.Parse(Console.ReadLine()));
+            }
+            static int Add(int x =2, int y=3)
+            {
+                return x + y;
+            }
+            static int Sub(int x, int y)
+            {
+                return x - y;
+            }
 
-                        Console.Write("Enter First Name : ");
-                        emp.SetFname(Console.ReadLine());
-
-                        Console.Write("Enter Last Name : ");
-                        emp.SetLname(Console.ReadLine());
-                        bool isvaled ;
-                        do {
-                            
-                            try
-                            {
-                                Console.Write("Enter Age : ");
-                                emp.Setage(int.Parse(Console.ReadLine()));
-                                isvaled = true;
-                            }
-                            catch (Exception ex)
-                            {
-                                Console.Write("Re ");
-                                isvaled = false;
-
-                            }
-                        } while (!isvaled);
-                        
-
-                        do
-                        {
-                            try
-                            {
-                                Console.Write("Enter Address : ");
-                                emp.SetAddress(Console.ReadLine());
-                                isvaled = true;
-
-                            }
-                            catch(Exception ex)
-                            {
-                                Console.Write("Re ");
-                                isvaled = false;
-
-                            }
-                        } while (!isvaled);
-
-                       
-
-                        emp.Print_Data();
-
-                        break;
-                    case 2:
-                        Console.WriteLine($"Enter number of employee : ");
-                        int ind = int.Parse(Console.ReadLine());
-                        Empoloyee[] emps= new Empoloyee[ind]; 
-                        for(int i = 0; i < emps.Length; i++)
-                        {
-                            Console.Write("Enter SSN : ");
-                            emps[i].SetSSN(int.Parse(Console.ReadLine()));
-
-                            Console.Write("Enter First Name : ");
-                            emps[i].SetFname(Console.ReadLine());
-
-                            Console.Write("Enter Last Name : ");
-                            emps[i].SetLname(Console.ReadLine());
-                            bool isvaled2;
-                            do
-                            {
-
-                                try
-                                {
-                                    Console.Write("Enter Age : ");
-                                    emps[i].Setage(int.Parse(Console.ReadLine()));
-                                    isvaled2 = true;
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.Write("Re ");
-                                    isvaled2 = false;
-
-                                }
-                            } while (!isvaled2);
-
-
-                            do
-                            {
-                                try
-                                {
-                                    Console.Write("Enter Address : ");
-                                    emps[i].SetAddress(Console.ReadLine());
-                                    isvaled2 = true;
-
-                                }
-                                catch (Exception ex)
-                                {
-                                    Console.Write("Re ");
-                                    isvaled2 = false;
-
-                                }
-                            } while (!isvaled2);
-
-
-
-                            //emps[i].Print_Data();
-
-                        }
-                        break;
-                    default:
-                        Console.WriteLine("Invaled choise ");
-                        break;
-                }
-            }while(true);
-
+            #endregion
+  
 
         }
     }
-
+    
+    #region Struct Employee
     public struct Empoloyee {
         private int SSN;
         private string Fname;
@@ -304,4 +396,6 @@
 
 
     }
+    #endregion
+
 }
