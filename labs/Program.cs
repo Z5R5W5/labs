@@ -1,5 +1,9 @@
-﻿namespace labs
+﻿using System.Security.Cryptography.X509Certificates;
+using static labs.CalculateSalaryEmp;
+
+namespace labs
 {
+    
     internal class Program
     {
         static Tuple<int, int> Max_Min(int[] arr)
@@ -47,6 +51,7 @@
 
         delegate int del(int x, int y);
 
+        public delegate bool FilterDelegate(CEmployee emp);
 
         static void Main(string[] args)
         {
@@ -305,53 +310,73 @@
             //        }
             #endregion
 
-            #region Delegates
-            calculator(2, 3, Add);
+            #region Delegates & Events
+            //calculator(2, 3, Add);
 
-            static void calculator(int x1, int y1, del de)
+            //static void calculator(int x1, int y1, del de)
+            //{
+            //    int x = de(x1, y1);
+
+
+            //    Console.WriteLine($"Add = {x}");
+
+            //}
+            //static int Add(int x = 2, int y = 3)
+            //{
+            //    return x + y;
+            //}
+            //static int Sub(int x, int y)
+            //{
+            //    return x - y;
+
+            //    Student[] students = new Student[3];
+            //    for (int i = 0; i < students.Length; i++)
+            //    {
+            //        students[i] = new Student();
+            //        Console.Write($"Enter SSN std {i + 1} : ");
+            //        students[i].SSN = int.Parse(Console.ReadLine());
+
+            //        Console.Write($"Enter Name std {i + 1} : ");
+            //        students[i].Name = Console.ReadLine();
+
+            //        Console.Write($"Enter Age std {i + 1} : ");
+            //        students[i].Age = int.Parse(Console.ReadLine());
+
+            //        Console.Write($"Enter Address std {i + 1} : ");
+            //        students[i].Address = Console.ReadLine();
+
+            //    }
+            //    for (int i = 0; i < students.Length; i++)
+            //    {
+            //        //students[i] = new Student();
+            //        students[i].Print();
+
+            //    }
+
+            List<CEmployee> empList = new List<CEmployee>();
+            for(int i = 0; i < 100; i++)
             {
-                int x = de(x1, y1);
-
-
-                Console.WriteLine($"Add = {x}");
-
+                CEmployee emp = new CEmployee();
+                emp.Id = i;
+                emp.Name = "emp" + i;
+                emp.Salary = 1000 + i * 10;
+                empList.Add(emp);
             }
-            static int Add(int x = 2, int y = 3)
+            CalculateSalaryEmp CalculateSalaryEm = new CalculateSalaryEmp();
+            CalculateSalaryEm.FilterEvent += FilterEventHandler;
+
+            CalculateSalaryEm.CalculateSalaryEmpE1(empList,(CEmployee emp) => { return emp.Salary > 1200; });
+            void FilterEventHandler(CEmployee emp, int salary)
             {
-                return x + y;
+                Console.WriteLine($"Id : {emp.Id} \nName : {emp.Name}\nSalary : {emp.Salary}");
             }
-            static int Sub(int x, int y)
-            {
-                return x - y;
 
-                Student[] students = new Student[3];
-                for (int i = 0; i < students.Length; i++)
-                {
-                    students[i] = new Student();
-                    Console.Write($"Enter SSN std {i + 1} : ");
-                    students[i].SSN = int.Parse(Console.ReadLine());
-
-                    Console.Write($"Enter Name std {i + 1} : ");
-                    students[i].Name = Console.ReadLine();
-
-                    Console.Write($"Enter Age std {i + 1} : ");
-                    students[i].Age = int.Parse(Console.ReadLine());
-
-                    Console.Write($"Enter Address std {i + 1} : ");
-                    students[i].Address = Console.ReadLine();
-
-                }
-                for (int i = 0; i < students.Length; i++)
-                {
-                    //students[i] = new Student();
-                    students[i].Print();
-
-                }
-
-                #endregion
+            #endregion
 
 
-            }
+
+
+        }
         }
 
         #region Struct Employee
@@ -432,5 +457,5 @@
         }
         #endregion
 
-    }
+    
 }
