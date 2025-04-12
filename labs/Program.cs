@@ -44,7 +44,10 @@
             arr[i] = arr[j];
             arr[j] = temp;
         }
+
         delegate int del(int x, int y);
+
+
         static void Main(string[] args)
         {
             #region exceptions
@@ -241,7 +244,9 @@
             //}while(true);
             #endregion
 
+
             #region coments
+
 
             //int[] arr= { 1, 3, 6, 5 };
             //int x = 0, y = 3;
@@ -301,101 +306,131 @@
             #endregion
 
             #region Delegates
-            calculator(2,3, Add);
+            calculator(2, 3, Add);
 
             static void calculator(int x1, int y1, del de)
             {
                 int x = de(x1, y1);
-                
+
 
                 Console.WriteLine($"Add = {x}");
 
             }
-            static int Add(int x =2, int y=3)
+            static int Add(int x = 2, int y = 3)
             {
                 return x + y;
             }
             static int Sub(int x, int y)
             {
                 return x - y;
+
+                Student[] students = new Student[3];
+                for (int i = 0; i < students.Length; i++)
+                {
+                    students[i] = new Student();
+                    Console.Write($"Enter SSN std {i + 1} : ");
+                    students[i].SSN = int.Parse(Console.ReadLine());
+
+                    Console.Write($"Enter Name std {i + 1} : ");
+                    students[i].Name = Console.ReadLine();
+
+                    Console.Write($"Enter Age std {i + 1} : ");
+                    students[i].Age = int.Parse(Console.ReadLine());
+
+                    Console.Write($"Enter Address std {i + 1} : ");
+                    students[i].Address = Console.ReadLine();
+
+                }
+                for (int i = 0; i < students.Length; i++)
+                {
+                    //students[i] = new Student();
+                    students[i].Print();
+
+                }
+
+                #endregion
+
+
+            }
+        }
+
+        #region Struct Employee
+        public struct Empoloyee
+        {
+            private int SSN;
+            private string Fname;
+            private string Lname;
+            private int Age;
+            private string Address;
+
+            public void SetSSN(int ssn)
+            {
+                this.SSN = ssn;
+
+            }
+            public void SetFname(string fname)
+            {
+                this.Fname = fname;
+            }
+            public void SetLname(string lname)
+            {
+                this.Lname = lname;
+            }
+            public void Setage(int age)
+            {
+                if (age >= 23 && age <= 45)
+                {
+
+                    this.Age = age;
+                }
+                else
+                {
+                    throw new Exception("invaled age ");
+                }
+            }
+            public void SetAddress(string address)
+            {
+                if (address == "cairo" || address == "alex" || address == "giza")
+                {
+                    this.Address = address;
+
+                }
+                else
+                {
+                    throw new Exception("invaled address");
+                }
             }
 
-            #endregion
-  
+            public int GetSSN()
+            {
+                return this.SSN;
+            }
+            public string GetFname()
+            {
+                return this.Fname;
+            }
+            public string GetLname()
+            {
+                return this.Lname;
+            }
+            public int GetAge()
+            {
+                return this.Age;
+            }
+            public string GetAddress()
+            {
+                return this.Address;
+            }
+
+            public void Print_Data()
+            {
+                Console.WriteLine($"Employee SSN : {SSN}\nEmpolyee First Name : {Fname}\nEmployee Last Name : {Lname}\nEmpolyee Age : {Age}\nEmployee Address : {Address}");
+            }
+
+
 
         }
+        #endregion
+
     }
-    
-    #region Struct Employee
-    public struct Empoloyee {
-        private int SSN;
-        private string Fname;
-        private string Lname;
-        private int Age;
-        private string Address;
-
-        public void SetSSN(int ssn)
-        {
-            this.SSN = ssn;
-
-        }
-        public void SetFname(string fname) { 
-            this.Fname = fname;
-        }
-        public void SetLname(string lname)
-        {
-            this.Lname = lname;
-        }
-        public void Setage(int age) { 
-            if (age>=23 && age <= 45)
-            {
-
-                this.Age = age;
-            }
-            else
-            {
-                throw new Exception("invaled age ");
-            }
-        }
-        public void SetAddress(string address) { 
-            if(address== "cairo" || address == "alex" || address == "giza")
-            {
-                this.Address = address;
-
-            }
-            else
-            {
-                throw new Exception("invaled address");
-            }
-        }
-
-        public int GetSSN() { 
-            return this.SSN;
-        }
-        public string GetFname() { 
-            return this.Fname;
-        }
-        public string GetLname()
-        {
-            return this.Lname;
-        }
-        public int GetAge()
-        {
-            return this.Age;
-        }
-        public string GetAddress()
-        {
-            return this.Address;
-        }
-
-        public void Print_Data()
-        {
-            Console.WriteLine($"Employee SSN : {SSN}\nEmpolyee First Name : {Fname}\nEmployee Last Name : {Lname}\nEmpolyee Age : {Age}\nEmployee Address : {Address}");
-        }
-
-
-
-    }
-    #endregion
-
 }
