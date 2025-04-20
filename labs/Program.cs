@@ -91,6 +91,7 @@ namespace labs
             //Console.WriteLine($" max value is {pair.Item2} \n min value is {pair.Item1}");
             //sort(arr);
             //for (int i = 0; i < arr.Length; i++)
+
             //{
             //    Console.Write(arr[i]);
             //}
