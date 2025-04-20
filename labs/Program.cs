@@ -125,7 +125,7 @@ namespace labs
             //    Console.WriteLine($"avarage of sub{i+1} is {vv}");
             //}
             #endregion
- 
+
 
             #region lab  3
             //do
@@ -358,31 +358,34 @@ namespace labs
 
             //    }
 
-            List<CEmployee> empList = new List<CEmployee>();
-            for(int i = 0; i < 100; i++)
-            {
-                CEmployee emp = new CEmployee();
-                emp.Id = i;
-                emp.Name = "emp" + i;
-                emp.Salary = 1000 + i * 10;
-                empList.Add(emp);
-            }
-            CalculateSalaryEmp CalculateSalaryEm = new CalculateSalaryEmp();
-            CalculateSalaryEm.FilterEvent += FilterEventHandler;
+            //List<CEmployee> empList = new List<CEmployee>();
+            //for(int i = 0; i < 100; i++)
+            //{
+            //    CEmployee emp = new CEmployee();
+            //    emp.Id = i;
+            //    emp.Name = "emp" + i;
+            //    emp.Salary = 1000 + i * 10;
+            //    empList.Add(emp);
+            //}
+            //CalculateSalaryEmp CalculateSalaryEm = new CalculateSalaryEmp();
+            //CalculateSalaryEm.FilterEvent += FilterEventHandler;
 
-            CalculateSalaryEm.CalculateSalaryEmpE1(empList,(CEmployee emp) => { return emp.Salary > 1200; });
-            void FilterEventHandler(CEmployee emp, int salary)
-            {
-                Console.WriteLine($"Id : {emp.Id} \nName : {emp.Name}\nSalary : {emp.Salary}");
-            }
+            //CalculateSalaryEm.CalculateSalaryEmpE1(empList,(CEmployee emp) => { return emp.Salary > 1200; });
+            //void FilterEventHandler(CEmployee emp, int salary)
+            //{
+            //    Console.WriteLine($"Id : {emp.Id} \nName : {emp.Name}\nSalary : {emp.Salary}");
+            //}
 
+            #endregion
+
+            #region ASS2_Payed Cource
             #endregion
 
 
 
 
         }
-        }
+    }
 
         #region Struct Employee
         public struct Empoloyee
