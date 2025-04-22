@@ -1,5 +1,14 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System;
+using System.ComponentModel;
+using System.Drawing;
+using System.Reflection.Metadata;
+using System.Security.Cryptography;
+using System.Security.Cryptography.X509Certificates;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Xml.Linq;
 using static labs.CalculateSalaryEmp;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace labs
 {
@@ -380,6 +389,456 @@ namespace labs
 
             #region ASS2_Payed Cource
             #endregion
+            #region ASS3_Payed Cource
+            //1 - Write a program that takes a number from the user then print yes
+            //if that number can be divided by 3 and 4 otherwise print no
+            //int x=int.Parse(Console.ReadLine());
+            //if (x % 3 == 0 && x % 4 == 0)
+            //{
+            //    Console.WriteLine("yes");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("no");
+            //}
+            //2 - Write a program that allows the user to insert an integer
+            //then print negative if it is negative number otherwise print positive.
+            //int y = int.Parse(Console.ReadLine());
+            //if (y < 0)
+            //{
+            //    Console.WriteLine("negative");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("positive");
+            //}
+
+            ////3 - Write a program that takes 3 integers from the user then
+            ////prints the max element and the min element.
+            //int[] arr = new int[3];
+            //int mi, ma;
+            //for(int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.Write($"Enter number {i + 1} : ");
+            //    arr[i] = int.Parse(Console.ReadLine());
+
+
+            //}
+            //mi = ma = arr[0];
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    if (arr[i] > ma)
+            //    {
+            //        ma = arr[i];
+            //    }
+            //    if (arr[i] < mi)
+            //    {
+            //        mi = arr[i];
+            //    }
+            //}
+            //Console.WriteLine($"max {ma} min {mi}");
+
+
+            //4 - Write a program that allows the user to insert an integer number then
+            //check If a number is even or odd.
+
+            //int x = int.Parse(Console.ReadLine());
+            //Console.WriteLine((x%2==1) ? "odd": "even");
+
+            //5 - Write a program that takes character from the user then
+            //if it is a vowel chars(a, e, I, o, u) then print(vowel)
+            //otherwise print(consonant).
+            //char ch = char.Parse(Console.ReadLine());
+            //if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            //    Console.WriteLine("vowel");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("consonant");
+            //}
+
+            //6 - Write a program that allows the user to insert an integer then
+            //print all numbers between 1 to that number.
+            //int x = int.Parse(Console.ReadLine());
+            //for (int i = 1; i <= x; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            //7 - Write a program that allows the user to insert an integer then
+            //print a multiplication table up to 12.
+            //int x = int.Parse(Console.ReadLine());
+            //for (int i = 1; i <= 12; i++)
+            //{ 
+            //    Console.WriteLine($"{x} * {i} = {x * i}");
+            //}
+
+            //8 - Write a program that allows to user to insert number then print all 
+            //    even numbers between 1 to this number
+            //int x = int.Parse(Console.ReadLine());
+            //for (int i = 1; i <= x; i++)
+            //{
+            //    if (i % 2 == 0)
+            //    {
+            //        Console.WriteLine(i);
+            //    }
+            //}
+
+            //9 - Write a program that takes two integers then prints the power.
+            //int x = int.Parse(Console.ReadLine());
+            //int y = int.Parse(Console.ReadLine());
+            //int res = 1;
+            //for (int i = 0; i < y; i++)
+            //{
+            //    res *= x;
+            //}
+            //Console.WriteLine(res);
+
+            //int x =(int)Math.Pow(2, 3);
+            //Console.WriteLine(x);
+
+            //10 - Write a program to enter marks of five subjects and calculate total,
+            //average and percentage.
+
+            //int[] arr = new int[5];
+            // int sum = 0;
+            // for (int i = 0; i < arr.Length; i++)
+            // {
+            //     Console.Write($"Enter marks {i + 1} : ");
+            //     arr[i] = int.Parse(Console.ReadLine());
+            //     sum += arr[i];
+            // }
+            // Console.WriteLine($"Total = {sum}");
+            // Console.WriteLine($"Average = {sum / arr.Length}");
+            // Console.WriteLine($"Percentage = {((sum / arr.Length) * 100 / 100 ) :P}");
+
+            //11 - Write a program to input the month number and print the number of
+            //days in that month.
+
+            //int x = int.Parse(Console.ReadLine());
+            //switch (x)
+            //{
+            //    case 1:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 2:
+            //        Console.WriteLine("28");
+            //        break;
+            //    case 3:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 4:
+            //        Console.WriteLine("30");
+            //        break;
+            //    case 5:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 6:
+            //        Console.WriteLine("30");
+            //        break;
+            //    case 7:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 8:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 9:
+            //        Console.WriteLine("30");
+            //        break;
+            //    case 10:
+            //        Console.WriteLine("31");
+            //        break;
+            //    case 11:
+            //        Console.WriteLine("30");
+            //        break;
+            //    case 12:
+            //        Console.WriteLine("31");
+            //        break;
+            //}
+
+            //12 - Write a program to create a Simple Calculator.
+            //int x = 0, y = 0;
+            //char op = ' ';
+            //Console.Write("Enter first number : ");
+            //x = int.Parse(Console.ReadLine());
+            //Console.Write("Enter second number : ");
+            //y = int.Parse(Console.ReadLine());
+            //Console.Write("Enter operator : ");
+            //op = char.Parse(Console.ReadLine());
+            //switch (op)
+            //{
+            //    case '+':
+            //        Console.WriteLine($"{x} + {y} = {x + y}");
+            //        break;
+            //    case '-':
+            //        Console.WriteLine($"{x} - {y} = {x - y}");
+            //        break;
+            //    case '*':
+            //        Console.WriteLine($"{x} * {y} = {x * y}");
+            //        break;
+            //    case '/':
+            //        Console.WriteLine($"{x} / {y} = {x / y}");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Invalid operator");
+            //        break;
+            //}
+
+            //13 - Write a program to allow the user to enter a string and print the
+            //REVERSE of it.
+
+            //string str = Console.ReadLine();
+            //Console.WriteLine(str[1]);
+            //IEnumerable<char>  js = str.Reverse();
+            //foreach(char c in js)
+            //{
+            //    Console.Write(c);
+            //}
+            //Console.WriteLine(str.Reverse().ToArray());
+            //char[] arr = str.ToCharArray();
+            //char[] arr2 = new char[arr.Length];
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    arr2[i] = arr[arr.Length - 1 - i];
+            //}
+            //Console.WriteLine(arr2);
+
+            //14 - Write a program to allow the user to enter int and print
+            //the REVERSED of it
+
+            //int x= int.Parse(Console.ReadLine());
+            //string s= Convert.ToString(x);
+            //var i = s.Reverse();
+            //string s2=new string("");
+            //foreach( char c in i)
+            //{
+            //     s2+= c;
+            //}
+            //int y = int.Parse(s2);
+            //Console.WriteLine(y+1);
+            //string s1= new string(x.ToString().Reverse().ToArray());
+
+            //-Write a program in C# Sharp to find prime numbers within a range of
+            //numbers.
+
+            //int x = 0, y = 0;
+            //Console.Write("Enter first number : ");
+            //x = int.Parse(Console.ReadLine());
+            //Console.Write("Enter second number : ");
+            //y = int.Parse(Console.ReadLine());
+
+            //for (int i = x; i <= y; i++)
+            //{
+            //    bool isPrime = true;
+            //    for (int j = 2; j < i; j++)
+            //    {
+            //        if (i % j == 0)
+            //        {
+            //            isPrime = false;
+            //            break;
+            //        }
+            //    }
+            //    if (isPrime && i!=1)
+            //    {
+            //        Console.WriteLine(i);
+            //    }
+            //}
+
+            //16 - .Write a program in C# Sharp to convert a decimal number into
+            //binary without using an array.
+            //int x=int.Parse(Console.ReadLine());
+            //string s = "";
+            //while (x > 0)
+            //{
+            //    s += x % 2;
+            //    x /= 2;
+            //}
+            //string s2 = "";
+            //s2 = new string(s.Reverse().ToArray());
+            //Console.WriteLine(s2);
+
+            //17 - Create a program that asks the user to input three
+            //points(x1, y1), (x2, y2), and(x3, y3), and determines whether
+            //these points lie on a single straight line.
+
+            //int x1 = 0, y1 = 0, x2 = 0, y2 = 0, x3 = 0, y3 = 0;
+            //Console.Write("Enter x1 : ");
+            //x1 = int.Parse(Console.ReadLine());
+            //Console.Write("Enter y1 : ");
+            //y1 = int.Parse(Console.ReadLine());
+            //Console.Write("Enter x2 : ");
+            //x2 = int.Parse(Console.ReadLine());
+            //Console.Write("Enter y2 : ");
+            //y2 = int.Parse(Console.ReadLine());
+            //Console.Write("Enter x3 : ");
+            //x3 = int.Parse(Console.ReadLine());
+            //Console.Write("Enter y3 : ");
+            //y3 = int.Parse(Console.ReadLine());
+            //if ((y2 - y1) * (x3 - x2) == (y3 - y2) * (x2 - x1))
+            //{
+            //    Console.WriteLine("yes");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("no");
+            //}
+
+            //18 - Within a company, the efficiency of workers is evaluated based on the duration required to complete a specific task.A worker's efficiency level is determined as follows: 
+            //- If the worker completes the job within 2 to 3 hours, they are considered highly efficient.
+            //- If the worker takes 3 to 4 hours, they are instructed to increase their speed.
+            //- If the worker takes 4 to 5 hours, they are provided with training to enhance their speed.
+            //- If the worker takes more than 5 hours, they are required to leave the company.
+            //To calculate the efficiency of a worker, the time taken for the task is obtained via user input from the keyboard.
+
+            //int x = 0;
+            //Console.Write("Enter time : ");
+            //x = int.Parse(Console.ReadLine());
+            //Console.WriteLine(x);
+            //if (x >= 2 && x <= 3)
+            //{
+            //    Console.WriteLine("highly efficient");
+            //}
+            //else if (x > 3 && x <= 4)
+            //{
+            //    Console.WriteLine("instructed to increase their speed");
+            //}
+            //else if (x > 4 && x <= 5)
+            //{
+            //    Console.WriteLine("provided with training to enhance their speed");
+            //}
+            //else if (x > 5)
+            //{
+            //    Console.WriteLine("required to leave the company");
+            //}
+
+
+            //19 - .Write a program that prints an identity matrix using for loop,
+            //in other words takes a value n from the user and shows the identity
+            //table of size n * n
+
+            //int n = 0;
+            //Console.Write("Enter n : ");
+            //n = int.Parse(Console.ReadLine());
+            //int[,] arr = new int[n, n];
+            //for (int i = 0; i < arr.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr.GetLength(1); j++)
+            //    {
+            //        if (i == j)
+            //        {
+            //            arr[i, j] = 1;
+            //        }
+            //        else
+            //        {
+            //            arr[i, j] = 0;
+            //        }
+            //    }
+            //}
+            //for (int i = 0; i < arr.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < arr.GetLength(1); j++)
+            //    {
+            //        Console.Write(arr[i, j] + "\t");
+            //    }
+            //    Console.WriteLine();
+            //}
+
+            //20 - Write a program in C# Sharp to find the sum of all elements
+            //of the array.
+
+            //int[] arr = new int[5];
+            //int sum = 0;
+            //for (int i = 0; i < arr.Length; i++)
+            //{
+            //    Console.Write($"Enter number {i + 1} : ");
+            //    arr[i] = int.Parse(Console.ReadLine());
+            //    sum += arr[i];
+            //}
+            //Console.WriteLine($"sum = {sum}");
+
+            //21 - Write a program in C# Sharp to merge two arrays of the same size
+            //sorted in ascending order.
+            //int[] arr1 = new int[5];
+            //int[] arr2 = new int[5];
+            //int[] arr3 = new int[arr1.Length + arr2.Length];
+            //for (int i = 0; i < arr1.Length; i++)
+            //{
+            //    Console.Write($"Enter number {i + 1} of first array : ");
+            //    arr1[i] = int.Parse(Console.ReadLine());
+            //}
+            //for (int i = 0; i < arr2.Length; i++)
+            //{
+            //    Console.Write($"Enter number {i + 1} of second array : ");
+            //    arr2[i] = int.Parse(Console.ReadLine());
+            //}
+            //for (int i = 0; i < arr1.Length; i++)
+            //{
+            //    arr3[i] = arr1[i];
+            //}
+            //for (int i = 0; i < arr2.Length; i++)
+            //{
+            //    arr3[i + arr1.Length] = arr2[i];
+            //}
+            //sort(arr3);
+            //Console.WriteLine("Merged array : ");
+            //for (int i = 0; i < arr3.Length; i++)
+            //{
+            //    Console.Write(arr3[i] + "\t");
+            //}
+            //Console.WriteLine();
+
+            //22 - Write a program in C# Sharp to count the frequency of each
+            //element of an array
+            //Console.Write("Enter the number of elements in the array: ");
+            //int n = int.Parse(Console.ReadLine());
+
+            //int[] arr = new int[n];
+            //int[] freq = new int[n]; // to store frequencies
+            //int visited = -1;
+
+            //Console.WriteLine("Enter the elements:");
+            //for (int i = 0; i < n; i++)
+            //{
+            //    arr[i] = int.Parse(Console.ReadLine());
+            //}
+
+            //for (int i = 0; i < n; i++)
+            //{
+            //    int count = 1;
+
+            //    if (freq[i] == visited)
+            //        continue;
+
+            //    for (int j = i + 1; j < n; j++)
+            //    {
+            //        if (arr[i] == arr[j])
+            //        {
+            //            count++;
+            //            freq[j] = visited; // mark as counted
+            //        }
+            //    }
+
+            //    freq[i] = count;
+            //}
+
+            //Console.WriteLine("\nFrequency of each element:");
+            //for (int i = 0; i < n; i++)
+            //{
+            //    if (freq[i] != visited)
+            //    {
+            //        Console.WriteLine($"Element {arr[i]} occurs {freq[i]} time(s).");
+            //    }
+            //}
+
+
+
+
+
+
+
+
+
+            #endregion
 
 
 
@@ -387,9 +846,9 @@ namespace labs
         }
     }
 
-        #region Struct Employee
+    #region Struct Employee
         public struct Empoloyee
-        {
+    {
             private int SSN;
             private string Fname;
             private string Lname;
